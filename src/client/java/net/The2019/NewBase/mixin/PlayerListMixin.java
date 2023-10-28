@@ -20,9 +20,9 @@ public class PlayerListMixin {
     public void getPlayerName(PlayerListEntry entry, CallbackInfoReturnable<Text> cir){
         if(entry.getProfile().getName().equals(MinecraftClient.getInstance().getSession().getUsername())){
             if(MinecraftClient.getInstance().getSession().getUsername().equals("The2019")){
-                cir.setReturnValue(Text.literal(playername + " §a[NB]"));
+                cir.setReturnValue(Text.literal(playername + " §a[⌬]"));
             }else {
-                cir.setReturnValue(Text.literal(MinecraftClient.getInstance().getSession().getUsername() + " §a[NB]"));
+                cir.setReturnValue(Text.literal(MinecraftClient.getInstance().getSession().getUsername() + " §a[⌬]"));
             }
         }
     }
