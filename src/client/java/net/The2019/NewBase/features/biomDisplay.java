@@ -10,7 +10,7 @@ public class biomDisplay {
 
     public static void biom(){
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if(mc.player != null && mc.player.getServer() != null) {
+            if(mc.player != null){
                 biom = mc.player.networkHandler.getWorld().getBiome(mc.player.getBlockPos()).toString();
             }
         });
