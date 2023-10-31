@@ -1,6 +1,7 @@
 package net.The2019.NewBase.mixin;
 
-import net.The2019.NewBase.features.*;
+import net.The2019.NewBase.features.AutoCrystal;
+import net.The2019.NewBase.features.Placer;
 import net.The2019.NewBase.features.hudDisplays.BiomDisplay;
 import net.The2019.NewBase.features.hudDisplays.CoordinatesDisplay;
 import net.The2019.NewBase.features.hudDisplays.FpsDisplay;
@@ -13,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(MinecraftClient.class)
 public class TickMixin {
 
-@Inject(at = @At("HEAD"), method = "tick")
+    @Inject(at = @At("HEAD"), method = "tick")
     private void onTick(CallbackInfo ci){
         AutoCrystal.autoCrystal();
         BiomDisplay.biomDisplay();
