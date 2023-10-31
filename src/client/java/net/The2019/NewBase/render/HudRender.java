@@ -1,6 +1,6 @@
 package net.The2019.NewBase.render;
 
-import net.The2019.NewBase.features.coordinatDisplay;
+import net.The2019.NewBase.features.coordinatesDisplay;
 import net.The2019.NewBase.features.biomDisplay;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
@@ -14,8 +14,8 @@ public class HudRender {
     public static void hudRendering(){
      HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
          TextRenderer renderer = mc.textRenderer;
-         drawContext.drawText(renderer,"X: " + coordinatDisplay.x + " " + "Y: " + coordinatDisplay.y + " " + "Z: " + coordinatDisplay.z, 10, 10, Color.GREEN.getRGB(), false);
-         drawContext.drawText(renderer, biomDisplay.biom, 10, 20, Color.GREEN.getRGB(), false);
+         drawContext.drawText(renderer,"X: " + coordinatesDisplay.x + " " + "Y: " + coordinatesDisplay.y + " " + "Z: " + coordinatesDisplay.z, 10, 10, Color.GREEN.getRGB(), false);
+         drawContext.drawText(renderer, "Biom: " + biomDisplay.biom, 10, 20, Color.GREEN.getRGB(), false);
      });
     }
 }

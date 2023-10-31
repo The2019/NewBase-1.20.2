@@ -2,7 +2,7 @@ package net.The2019.NewBase;
 
 import net.The2019.NewBase.features.autoCrystal;
 import net.The2019.NewBase.features.biomDisplay;
-import net.The2019.NewBase.features.coordinatDisplay;
+import net.The2019.NewBase.features.coordinatesDisplay;
 import net.The2019.NewBase.features.placer;
 import net.The2019.NewBase.render.HudRender;
 import net.fabricmc.api.ClientModInitializer;
@@ -15,8 +15,8 @@ public class NewBaseClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		HudRender.hudRendering();
 		placer.place();
-		biomDisplay.biom();
-		coordinatDisplay.coordinats();
+		biomDisplay.biomDisplay();
+		coordinatesDisplay.coordinates();
 		autoCrystal.autoCrystal();
 	}
 }

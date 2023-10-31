@@ -6,7 +6,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.EndCrystalEntity;
 
 public class autoCrystal {
-
     private static final MinecraftClient mc = MinecraftClient.getInstance();
 
     public static void autoCrystal(){
