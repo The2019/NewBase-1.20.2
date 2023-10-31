@@ -3,7 +3,8 @@
 	"package": "net.The2019.NewBase.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"client": [
-		"PlayerListMixin"
+		"PlayerListMixin",
+		"TickMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

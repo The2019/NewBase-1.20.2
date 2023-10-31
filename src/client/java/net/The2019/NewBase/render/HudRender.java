@@ -1,10 +1,9 @@
 package net.The2019.NewBase.render;
 
-import net.The2019.NewBase.features.BiomDisplay;
-import net.The2019.NewBase.features.CoordinatesDisplay;
-import net.The2019.NewBase.features.FpsDisplay;
+import net.The2019.NewBase.features.hudDisplays.BiomDisplay;
+import net.The2019.NewBase.features.hudDisplays.CoordinatesDisplay;
+import net.The2019.NewBase.features.hudDisplays.FpsDisplay;
 import net.The2019.NewBase.utils.DisplayElements;
-import net.The2019.NewBase.utils.DisplayTextSupplier;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
@@ -22,6 +21,8 @@ public class HudRender {
         displayElements.add(new DisplayElements("Coordinates", Color.GREEN.getRGB(), () -> "X: " + CoordinatesDisplay.x + " Y: " + CoordinatesDisplay.y + " Z: " + CoordinatesDisplay.z));
         displayElements.add(new DisplayElements("Biom", Color.GREEN.getRGB(), () -> "Biom: " + BiomDisplay.biom));
         displayElements.add(new DisplayElements("Fps", Color.GREEN.getRGB(), () -> "FPS: " + FpsDisplay.fps));
+
+        //displayElements.get(0).setActive(false);
 
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
             TextRenderer renderer = mc.textRenderer;
