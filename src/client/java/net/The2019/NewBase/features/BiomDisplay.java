@@ -3,7 +3,7 @@ package net.The2019.NewBase.features;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 
-public class biomDisplay {
+public class BiomDisplay {
 
     private static final MinecraftClient mc = MinecraftClient.getInstance();
     public static String biom = "";

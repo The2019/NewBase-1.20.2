@@ -3,7 +3,7 @@ package net.The2019.NewBase.features;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.minecraft.client.MinecraftClient;
 
-public class coordinatesDisplay {
+public class CoordinatesDisplay {
 
     private static final MinecraftClient mc = MinecraftClient.getInstance();
 

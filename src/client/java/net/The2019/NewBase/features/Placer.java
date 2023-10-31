@@ -9,9 +9,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import org.lwjgl.glfw.GLFW;
 
-import static net.The2019.NewBase.utils.sendPacket.sendPackets;
+import static net.The2019.NewBase.utils.SendPacket.sendPackets;
 
-public class placer {
+public class Placer {
 
     private static final MinecraftClient mc = MinecraftClient.getInstance();
     public static void place(){
