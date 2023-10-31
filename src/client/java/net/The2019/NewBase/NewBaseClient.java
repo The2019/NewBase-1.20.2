@@ -1,6 +1,5 @@
 package net.The2019.NewBase;
 
-import net.The2019.NewBase.features.autoCrystal;
 import net.The2019.NewBase.features.biomDisplay;
 import net.The2019.NewBase.features.coordinatesDisplay;
 import net.The2019.NewBase.features.placer;
@@ -17,6 +16,5 @@ public class NewBaseClient implements ClientModInitializer {
 		placer.place();
 		biomDisplay.biomDisplay();
 		coordinatesDisplay.coordinates();
-		autoCrystal.autoCrystal();
 	}
 }
