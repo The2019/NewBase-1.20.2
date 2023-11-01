@@ -4,7 +4,6 @@ import net.The2019.NewBase.render.WorldRender;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.block.entity.BeehiveBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -50,7 +49,7 @@ public class BeeHiveHelper implements Runnable{
             return blockEntities;
         }
 
-        int renderDistance = mc.options.getViewDistance().getValue() * 2; // Increase view distance (multiply by a factor)
+        int renderDistance = mc.options.getViewDistance().getValue() * 4; // Increase view distance (multiply by a factor)
 
         BlockPos playerPos = new BlockPos((int) mc.player.getX(), (int) mc.player.getY(), (int) mc.player.getZ());
 
