@@ -1,7 +1,6 @@
 package net.The2019.NewBase.mixin;
 
-import net.The2019.NewBase.features.AutoCrystal;
-import net.The2019.NewBase.features.ChestESP;
+import net.The2019.NewBase.features.BeeHiveHelper;
 import net.The2019.NewBase.features.hudDisplays.BiomDisplay;
 import net.The2019.NewBase.features.hudDisplays.CoordinatesDisplay;
 import net.The2019.NewBase.features.hudDisplays.FpsDisplay;
@@ -17,14 +16,12 @@ public abstract class TickMixin {
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void onTick(CallbackInfo ci){
-
-        AutoCrystal.autoCrystal();
         BiomDisplay.biomDisplay();
         CoordinatesDisplay.coordinates();
         FpsDisplay.setFps();
 
         PermissionLevel.checkPlayerPermission();
 
-        ChestESP.render();
+        BeeHiveHelper.render();
     }
 }

@@ -10,6 +10,7 @@ import org.lwjgl.opengl.GL11;
 
 public class WorldRender {
     public static void renderOutline(WorldRenderContext context, Box box, float[] colorComponents, float lineWidth, boolean throughWalls) {
+
         MatrixStack matrices = context.matrixStack();
         Vec3d camera = context.camera().getPos();
         Tessellator tessellator = RenderSystem.renderThreadTesselator();

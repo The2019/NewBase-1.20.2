@@ -2,6 +2,7 @@ package net.The2019.NewBase.features;
 
 import net.The2019.NewBase.render.WorldRender;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.minecraft.block.entity.BeehiveBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.ChestBlockEntity;
 import net.minecraft.client.MinecraftClient;
@@ -13,21 +14,23 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChestESP {
+public class BeeHiveHelper implements Runnable{
+
     private static final MinecraftClient mc = MinecraftClient.getInstance();
     private static final float[] colorComponents = {0.0f, 0.0f, 0.0f};
 
-    private static final int RENDER_INTERVAL = 40;
+    private static final int RENDER_INTERVAL = 20;
     private static int ticksSinceLastRender = 0;
 
     public static void render() {
+
         WorldRenderEvents.END.register(context -> {
             if (mc.player != null) {
                 ticksSinceLastRender++;
 
                 if (ticksSinceLastRender >= RENDER_INTERVAL) {
                     for (BlockEntity blockEntity : getBlockEntitiesInRenderDistance()) {
-                        if (blockEntity instanceof ChestBlockEntity) {
+                        if (blockEntity instanceof BeehiveBlockEntity) {
                             BlockPos entityPos = blockEntity.getPos();
                             WorldRender.renderOutline(context, Box.from(Vec3d.of(entityPos)), colorComponents, 5, true);
                         }
@@ -47,7 +50,7 @@ public class ChestESP {
             return blockEntities;
         }
 
-        int renderDistance = mc.options.getViewDistance().getValue();
+        int renderDistance = mc.options.getViewDistance().getValue() * 2; // Increase view distance (multiply by a factor)
 
         BlockPos playerPos = new BlockPos((int) mc.player.getX(), (int) mc.player.getY(), (int) mc.player.getZ());
 
@@ -65,5 +68,28 @@ public class ChestESP {
         }
 
         return blockEntities;
+    }
+
+    @Override
+    public void run() {
+
+        while (!Thread.interrupted()){
+
+            render();
+
+            try {
+                Thread.sleep(1000); // Sleep for 1 second
+            } catch (InterruptedException e) {
+                // Handle interruption or cleanup
+                break;
+            }
+        }
+    }
+
+    public static void start(){
+        BeeHiveHelper espThread = new BeeHiveHelper();
+        Thread espthread = new Thread(espThread);
+        espthread.start();
+
     }
 }
