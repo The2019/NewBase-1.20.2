@@ -19,7 +19,7 @@ public class TickMixin {
         AutoCrystal.autoCrystal();
         BiomDisplay.biomDisplay();
         CoordinatesDisplay.coordinates();
-        FpsDisplay.extractFPS();
         Placer.place();
+        FpsDisplay.setFps();
     }
 }
