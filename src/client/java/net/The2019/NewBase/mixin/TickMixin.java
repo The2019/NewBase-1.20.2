@@ -1,10 +1,10 @@
 package net.The2019.NewBase.mixin;
 
 import net.The2019.NewBase.features.AutoCrystal;
-import net.The2019.NewBase.features.Placer;
 import net.The2019.NewBase.features.hudDisplays.BiomDisplay;
 import net.The2019.NewBase.features.hudDisplays.CoordinatesDisplay;
 import net.The2019.NewBase.features.hudDisplays.FpsDisplay;
+import net.The2019.NewBase.utils.PermissionLevel;
 import net.minecraft.client.MinecraftClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,7 +19,8 @@ public class TickMixin {
         AutoCrystal.autoCrystal();
         BiomDisplay.biomDisplay();
         CoordinatesDisplay.coordinates();
-        Placer.place();
         FpsDisplay.setFps();
+
+        PermissionLevel.checkPlayerPermission();
     }
 }

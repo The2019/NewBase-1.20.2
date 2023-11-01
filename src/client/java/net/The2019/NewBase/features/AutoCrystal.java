@@ -4,7 +4,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.EndCrystalEntity;
 
-import static net.The2019.NewBase.utils.PermsionLevel.isPlayerAllowed;
+import static net.The2019.NewBase.utils.PermissionLevel.isPlayerAllowed;
 
 public class AutoCrystal {
     private static final MinecraftClient mc = MinecraftClient.getInstance();
