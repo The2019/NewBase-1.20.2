@@ -1,20 +1,24 @@
 package net.The2019.NewBase.utils;
 
+import net.minecraft.text.Text;
+
+import java.util.function.Supplier;
+
 public class DisplayElements {
     private final String name;
     private final int color;
-    private final DisplayTextSupplier textSupplier;
+    private final Supplier<Text> textSupplier;
     private boolean active;
 
-    public DisplayElements(String name, int color, DisplayTextSupplier textSupplier) {
+    public DisplayElements(String name, int color, Supplier<Text> textSupplier) {
         this.name = name;
         this.color = color;
         this.textSupplier = textSupplier;
         this.active = true; // Elements are active by default
     }
 
-    public String getText() {
-        return textSupplier.getDisplayText();
+    public Text getText() {
+        return textSupplier.get();
     }
 
     public boolean isActive() {

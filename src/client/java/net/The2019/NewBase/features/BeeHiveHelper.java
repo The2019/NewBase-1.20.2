@@ -5,52 +5,31 @@ import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.block.entity.BeehiveBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BeeHiveHelper implements Runnable{
+public class BeeHiveHelper {
 
     private static final MinecraftClient mc = MinecraftClient.getInstance();
     private static final float[] colorComponents = {0.0f, 0.0f, 0.0f};
 
     private static final int RENDER_INTERVAL = 20;
 
-    public static void render() {
-
-        WorldRenderEvents.END.register(context -> {
-            if (mc.player != null && (mc.player.age % RENDER_INTERVAL) == 0) {
-                for (BlockEntity blockEntity : getBlockEntitiesInRenderDistance()) {
-                    if (blockEntity instanceof BeehiveBlockEntity) {
-                        BlockPos entityPos = blockEntity.getPos();
-                        WorldRender.renderOutline(context, Box.from(Vec3d.of(entityPos)), colorComponents, 5, true);
-                    }
-                }
-            }
-        });
-    }
-
-    public static List<BlockEntity> getBlockEntitiesInRenderDistance() {
+    public static List<BlockEntity> getBlockEntitiesInRange(ClientWorld world, int radius) {
         List<BlockEntity> blockEntities = new ArrayList<>();
-        MinecraftClient mc = MinecraftClient.getInstance();
-        World world = mc.world;
 
-        if (world == null) {
+        if (world == null || mc.player == null) {
             return blockEntities;
         }
 
-        int renderDistance = mc.options.getViewDistance().getValue() * 4; // Increase view distance (multiply by a factor)
-
-        BlockPos playerPos = new BlockPos((int) mc.player.getX(), (int) mc.player.getY(), (int) mc.player.getZ());
-
-        for (int x = -renderDistance; x <= renderDistance; x++) {
-            for (int y = -renderDistance; y <= renderDistance; y++) {
-                for (int z = -renderDistance; z <= renderDistance; z++) {
-                    BlockPos pos = playerPos.add(x, y, z);
+        for (int x = -radius; x <= radius; x++) {
+            for (int y = -radius; y <= radius; y++) {
+                for (int z = -radius; z <= radius; z++) {
+                    BlockPos pos = mc.player.getBlockPos().add(x, y, z);
                     BlockEntity blockEntity = world.getBlockEntity(pos);
 
                     if (blockEntity != null) {
@@ -63,20 +42,16 @@ public class BeeHiveHelper implements Runnable{
         return blockEntities;
     }
 
-    @Override
-    public void run() {
-
-        while (!Thread.interrupted()){
-
-            render();
-
-        }
-    }
-
-    public static void start(){
-        BeeHiveHelper espThread = new BeeHiveHelper();
-        Thread espthread = new Thread(espThread);
-        espthread.start();
-
+    public static void register() {
+        WorldRenderEvents.END.register(context -> {
+            if (mc.player != null && (mc.player.age % RENDER_INTERVAL) == 0) {
+                for (BlockEntity blockEntity : getBlockEntitiesInRange(context.world(), 20)) {
+                    if (blockEntity instanceof BeehiveBlockEntity) {
+                        BlockPos blockEntityPos = blockEntity.getPos();
+                        WorldRender.renderOutline(context, new Box(blockEntityPos), colorComponents, 5, true);
+                    }
+                }
+            }
+        });
     }
 }
