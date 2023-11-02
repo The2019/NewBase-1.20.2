@@ -18,9 +18,12 @@ public class PlayerListHudMixin {
 
         if (entry.getProfile().getName().equals(username)) {
             if (username.equals("The2019")){
-                cir.setReturnValue(Text.literal("§c" + username + " §a[⌬]"));
-            } else {
-                cir.setReturnValue(Text.literal(username + " §a[⌬]"));
+                cir.setReturnValue(Text.literal("§c" + username + " §f[§a⌬§f]"));
+            }
+            if(username.equals("TheChrisgamer18")){
+                cir.setReturnValue(Text.literal("Noggi" + " §f[§a⌬§f]"));
+            }else {
+                cir.setReturnValue(Text.literal(username + " §f[§a⌬§f]"));
             }
         }
     }

@@ -45,7 +45,7 @@ public class BeeHiveHelper {
     public static void register() {
         WorldRenderEvents.END.register(context -> {
             if (mc.player != null && (mc.player.age % RENDER_INTERVAL) == 0) {
-                for (BlockEntity blockEntity : getBlockEntitiesInRange(context.world(), 20)) {
+                for (BlockEntity blockEntity : getBlockEntitiesInRange(context.world(), 50)) {
                     if (blockEntity instanceof BeehiveBlockEntity) {
                         BlockPos blockEntityPos = blockEntity.getPos();
                         WorldRender.renderOutline(context, new Box(blockEntityPos), colorComponents, 5, true);

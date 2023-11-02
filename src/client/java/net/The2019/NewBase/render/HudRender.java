@@ -16,7 +16,6 @@ public class HudRender {
     private static final List<DisplayElements> displayElements = new ArrayList<>();
 
     public static void registerHudRendering() {
-        // Add your display elements to the list
         displayElements.add(new DisplayElements("Coordinates", Color.GREEN.getRGB(), CoordinatesDisplay::getPositionText));
         displayElements.add(new DisplayElements("Biome", Color.GREEN.getRGB(), BiomeDisplay::getBiomeText));
         displayElements.add(new DisplayElements("Fps", Color.GREEN.getRGB(), FpsDisplay::getFpsText));
@@ -26,7 +25,6 @@ public class HudRender {
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
             int yOffset = 10;
 
-            // Render each active display element
             for (DisplayElements element : displayElements) {
                 if (element.isActive()) {
                     drawContext.drawText(mc.textRenderer, element.getText(), 10, yOffset, element.getColor(), false);
