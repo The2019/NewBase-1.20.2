@@ -7,8 +7,7 @@ public class SendPacket {
 
     private static final MinecraftClient mc = MinecraftClient.getInstance();
 
-    public static void sendPackets(Packet packet){
+    public static void sendPacket(Packet<?> packet) {
         mc.player.networkHandler.sendPacket(packet);
     }
-
 }

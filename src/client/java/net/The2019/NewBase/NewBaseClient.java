@@ -12,8 +12,8 @@ public class NewBaseClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		PermissionLevel.initAllowedPlayers();
-		HudRender.hudRendering();
+		HudRender.registerHudRendering();
 
-		BeeHiveHelper.start();
+		BeeHiveHelper.register();
 	}
 }
