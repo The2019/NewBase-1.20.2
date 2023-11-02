@@ -1,6 +1,5 @@
 package net.The2019.NewBase.mixin;
 
-import net.The2019.NewBase.features.BeeHiveHelper;
 import net.The2019.NewBase.features.hudDisplays.BiomDisplay;
 import net.The2019.NewBase.features.hudDisplays.CoordinatesDisplay;
 import net.The2019.NewBase.features.hudDisplays.FpsDisplay;
@@ -21,7 +20,5 @@ public abstract class TickMixin {
         FpsDisplay.setFps();
 
         PermissionLevel.checkPlayerPermission();
-
-        BeeHiveHelper.render();
     }
 }

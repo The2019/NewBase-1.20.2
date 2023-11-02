@@ -19,22 +19,16 @@ public class BeeHiveHelper implements Runnable{
     private static final float[] colorComponents = {0.0f, 0.0f, 0.0f};
 
     private static final int RENDER_INTERVAL = 20;
-    private static int ticksSinceLastRender = 0;
 
     public static void render() {
 
         WorldRenderEvents.END.register(context -> {
-            if (mc.player != null) {
-                ticksSinceLastRender++;
-
-                if (ticksSinceLastRender >= RENDER_INTERVAL) {
-                    for (BlockEntity blockEntity : getBlockEntitiesInRenderDistance()) {
-                        if (blockEntity instanceof BeehiveBlockEntity) {
-                            BlockPos entityPos = blockEntity.getPos();
-                            WorldRender.renderOutline(context, Box.from(Vec3d.of(entityPos)), colorComponents, 5, true);
-                        }
+            if (mc.player != null && (mc.player.age % RENDER_INTERVAL) == 0) {
+                for (BlockEntity blockEntity : getBlockEntitiesInRenderDistance()) {
+                    if (blockEntity instanceof BeehiveBlockEntity) {
+                        BlockPos entityPos = blockEntity.getPos();
+                        WorldRender.renderOutline(context, Box.from(Vec3d.of(entityPos)), colorComponents, 5, true);
                     }
-                    ticksSinceLastRender = 0;
                 }
             }
         });
@@ -76,12 +70,6 @@ public class BeeHiveHelper implements Runnable{
 
             render();
 
-            try {
-                Thread.sleep(1000); // Sleep for 1 second
-            } catch (InterruptedException e) {
-                // Handle interruption or cleanup
-                break;
-            }
         }
     }
 
