@@ -22,6 +22,8 @@ public class HudRender {
 
         //displayElements.get(0).setActive(false);
 
+
+
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
             int yOffset = 10;
 
