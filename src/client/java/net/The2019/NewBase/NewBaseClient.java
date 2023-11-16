@@ -1,8 +1,8 @@
 package net.The2019.NewBase;
 
-import net.The2019.NewBase.features.BeeHiveHelper;
 import net.The2019.NewBase.features.ChunkRender;
 import net.The2019.NewBase.render.HudRender;
+import net.The2019.NewBase.screen.ConfigScreen;
 import net.The2019.NewBase.utils.InitKeyBindings;
 import net.The2019.NewBase.utils.PermissionLevel;
 import net.fabricmc.api.ClientModInitializer;
@@ -16,10 +16,11 @@ public class NewBaseClient implements ClientModInitializer {
 		PermissionLevel.initAllowedPlayers();
 		HudRender.registerHudRendering();
 
-		BeeHiveHelper.register();
+		//BeeHiveHelper.register();
 		ChunkRender.renderChunkOutline();
 
 		InitKeyBindings.initKeys();
+		ConfigScreen.addDrawables();
 
 	}
 }
