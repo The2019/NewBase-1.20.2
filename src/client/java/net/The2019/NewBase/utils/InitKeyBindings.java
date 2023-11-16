@@ -8,21 +8,30 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import org.lwjgl.glfw.GLFW;
 
+import static net.The2019.NewBase.features.config.ModuleStates.fpsDisplayState;
+
 public class InitKeyBindings {
 
     private static final MinecraftClient mc = MinecraftClient.getInstance();
 
-    public static void initKeys(){
-        KeyBinding chatCoordinates = KeyBindingHelper.registerKeyBinding(new KeyBinding("Send Coordinates", GLFW.GLFW_KEY_P, "New Base"));
 
-        KeyBinding configScreen = KeyBindingHelper.registerKeyBinding(new KeyBinding("Opens Config Screen", GLFW.GLFW_KEY_O, "New Base"));
+    public static void initKeys(){
+        KeyBinding configScreen = KeyBindingHelper.registerKeyBinding(new KeyBinding("newbase.keybinds.configscreen", GLFW.GLFW_KEY_O, "newbase.name"));
+
+        KeyBinding chatCoordinates = KeyBindingHelper.registerKeyBinding(new KeyBinding("newbase.keybinds.sendcoordinates", GLFW.GLFW_KEY_P, "newbase.name"));
+
+        KeyBinding toggleFps = KeyBindingHelper.registerKeyBinding(new KeyBinding("newbase.keybinds.togglefps", GLFW.GLFW_KEY_K, "newbase.name"));
+
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            if(configScreen.wasPressed()){
+                mc.setScreen(new ConfigScreen(mc.currentScreen, mc.options));
+            }
             if(chatCoordinates.wasPressed()){
                 ChatCoordinates.sendCoordinates();
             }
-            if(configScreen.wasPressed()){
-                mc.setScreen(new ConfigScreen(mc.currentScreen, mc.options, "Config Screen"));
+            if(toggleFps.wasPressed()){
+                fpsDisplayState = !fpsDisplayState;
             }
         });
     }

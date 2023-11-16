@@ -11,6 +11,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static net.The2019.NewBase.features.config.ModuleStates.*;
+
 public class HudRender {
     private static final MinecraftClient mc = MinecraftClient.getInstance();
     private static final List<DisplayElements> displayElements = new ArrayList<>();
@@ -20,12 +22,12 @@ public class HudRender {
         displayElements.add(new DisplayElements("Biome", Color.GREEN.getRGB(), BiomeDisplay::getBiomeText));
         displayElements.add(new DisplayElements("Fps", Color.GREEN.getRGB(), FpsDisplay::getFpsText));
 
-        //displayElements.get(0).setActive(false);
-
-
-
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
             int yOffset = 10;
+
+            displayElements.get(0).setActive(coordinatesDisplayState);
+            displayElements.get(1).setActive(biomDisplayState);
+            displayElements.get(2).setActive(fpsDisplayState);
 
             for (DisplayElements element : displayElements) {
                 if (element.isActive()) {

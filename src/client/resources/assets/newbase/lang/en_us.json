@@ -1,0 +1,19 @@
+{
+  "newbase.name": "NewBase",
+
+  "newbase.configscreen.name": "Config Screen",
+  "newbase.configscreen.togglecoordinates": "Toggle Coordinates Display",
+  "newbase.configscreen.togglebiom": "Toggle Biom Display",
+  "newbase.configscreen.togglefps": "Toggle FPS Display",
+  "newbase.configscreen.enabled": "§f◼",
+
+
+  "newbase.chatcoordinatesscreen.name": "Chat Coordinates Screen",
+  "newbase.chatcoordinatesscreen.yes": "§aYes",
+  "newbase.chatcoordinatesscreen.no": "§4No",
+  "newbase.chatcoordinatesscreen.message": "Press §aYes §fto send Coordinates in the chat or §4No §fto return back to the game.",
+
+  "newbase.keybinds.configscreen": "Config Screen",
+  "newbase.keybinds.sendcoordinates": "Send Coordinates",
+  "newbase.keybinds.togglefps": "Toggle Fps"
+}
