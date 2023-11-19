@@ -1,0 +1,18 @@
+        buttonWidgetList.add((new ButtonWidget.Builder(Text.translatable("newbase.configscreen.togglecoordinates"), button -> {
+            coordinatesDisplayState = !coordinatesDisplayState;
+        }).dimensions(20, y, 150, 20).build()));
+
+        buttonWidgetList.add((new ButtonWidget.Builder(Text.translatable("newbase.configscreen.togglebiom"), button -> {
+            biomDisplayState = !biomDisplayState;
+        }).dimensions(20, y * 2, 150, 20).build()));
+
+        buttonWidgetList.add((new ButtonWidget.Builder(Text.translatable("newbase.configscreen.togglefps"), button -> {
+            fpsDisplayState = !fpsDisplayState;
+        }).dimensions(20, y * 3, 150, 20).build()));
+
+        this.addDrawable(new TextWidget(20, 10, 80, 10, Text.translatable("newbase.configscreen.name"), textRenderer));
+
+
+        for (ButtonWidget buttonWidget : buttonWidgetList) {
+            this.addDrawableChild(buttonWidget);
+        }
