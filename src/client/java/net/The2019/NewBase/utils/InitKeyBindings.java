@@ -1,7 +1,7 @@
 package net.The2019.NewBase.utils;
 
-import net.The2019.NewBase.features.ChatCoordinates;
-import net.The2019.NewBase.screen.ConfigScreen;
+import net.The2019.NewBase.screens.ChatCoordinatesScreen;
+import net.The2019.NewBase.screens.ConfigScreen;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
@@ -28,7 +28,7 @@ public class InitKeyBindings {
                 mc.setScreen(new ConfigScreen(mc.currentScreen, mc.options));
             }
             if(chatCoordinates.wasPressed()){
-                ChatCoordinates.sendCoordinates();
+                mc.setScreen(new ChatCoordinatesScreen(mc.currentScreen, mc.options));
             }
             if(toggleFps.wasPressed()){
                 fpsDisplayState = !fpsDisplayState;

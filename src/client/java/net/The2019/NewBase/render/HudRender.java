@@ -1,8 +1,8 @@
 package net.The2019.NewBase.render;
 
-import net.The2019.NewBase.features.hudDisplays.BiomeDisplay;
-import net.The2019.NewBase.features.hudDisplays.CoordinatesDisplay;
-import net.The2019.NewBase.features.hudDisplays.FpsDisplay;
+import net.The2019.NewBase.features.hud.BiomeDisplay;
+import net.The2019.NewBase.features.hud.CoordinatesDisplay;
+import net.The2019.NewBase.features.hud.FpsDisplay;
 import net.The2019.NewBase.utils.DisplayElements;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;

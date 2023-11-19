@@ -1,4 +1,4 @@
-package net.The2019.NewBase.screen;
+package net.The2019.NewBase.screens;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
@@ -13,10 +13,10 @@ public class ChatCoordinatesScreen extends Screen {
     private final GameOptions settings;
     private static final MinecraftClient mc = MinecraftClient.getInstance();
 
-    public ChatCoordinatesScreen(Screen parent, GameOptions options) {
+    public ChatCoordinatesScreen(Screen parent, GameOptions gameOptions) {
         super(Text.translatable("newbase.chatcoordinatesscreen.name"));
         this.parent = parent;
-        this.settings = options;
+        this.settings = gameOptions;
     }
 
     @Override

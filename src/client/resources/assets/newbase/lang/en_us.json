@@ -5,6 +5,17 @@
   "newbase.configscreen.hud": "Hud Configs",
   "newbase.configscreen.hudbutton": "Hud Configs",
   "newbase.configscreen.hudtooltip": "Opens the config menu for the Hud.",
+  "newbase.configscreen.render": "Render Configs",
+  "newbase.configscreen.renderbutton": "Render Configs",
+  "newbase.configscreen.rendertooltip": "Opens the config menu for the Renderings.",
+
+  "newbase.hudscreen.name": "Hud Config Screen",
+  "newbase.hudscreen.back": "§4Back",
+  "newbase.hudscreen.togglecoordinatesdisplay": "Toggle Coordinates Display",
+  "newbase.hudscreen.enabled": "§aENABLED",
+  "newbase.hudscreen.disabled": "§4DISABLED",
+  "newbase.hudscreen.tooltip": "Press to Toggle",
+
 
   "newbase.chatcoordinatesscreen.name": "Chat Coordinates Screen",
   "newbase.chatcoordinatesscreen.yes": "§aYes",
