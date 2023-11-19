@@ -25,7 +25,7 @@ public class ConfigScreen extends Screen {
 
     @Override
     protected void init() {
-        this.addDrawable(new TextWidget(x, 20, 100, 20, Text.translatable("newbase.configscreen.name").formatted(Formatting.BOLD), textRenderer)).alignLeft();
+        this.addDrawable(new TextWidget(x, 20, 100, 20, Text.translatable("newbase.configscreen.name").formatted(Formatting.BOLD), textRenderer)).alignLeft().setTooltip(Tooltip.of(Text.translatable("newbase.configscreen.nametooltip")));
 
         //Hud
         this.addDrawable(new TextWidget(x, y, 100, 20, Text.translatable("newbase.configscreen.hud"), mc.textRenderer).alignLeft());
