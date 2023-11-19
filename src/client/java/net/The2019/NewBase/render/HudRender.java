@@ -11,7 +11,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static net.The2019.NewBase.features.config.ModuleStates.*;
+import static net.The2019.NewBase.config.ModuleStates.*;
 
 public class HudRender {
     private static final MinecraftClient mc = MinecraftClient.getInstance();

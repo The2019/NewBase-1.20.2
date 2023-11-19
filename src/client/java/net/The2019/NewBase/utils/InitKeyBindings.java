@@ -8,7 +8,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import org.lwjgl.glfw.GLFW;
 
-import static net.The2019.NewBase.features.config.ModuleStates.fpsDisplayState;
+import static net.The2019.NewBase.config.ModuleStates.fpsDisplayState;
 
 public class InitKeyBindings {
 

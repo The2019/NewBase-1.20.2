@@ -1,5 +1,6 @@
 package net.The2019.NewBase.screens.configScreen;
 
+import net.The2019.NewBase.config.ModuleStates;
 import net.The2019.NewBase.screens.ConfigScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
@@ -9,7 +10,11 @@ import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.text.Text;
 
-import static net.The2019.NewBase.features.config.ModuleStates.*;
+import static net.The2019.NewBase.config.ModuleConfig.saveModule;
+import static net.The2019.NewBase.config.ModuleStates.*;
+
+<
+
 
 public class HudScreen extends Screen {
     private final Screen parent;
@@ -61,6 +66,7 @@ public class HudScreen extends Screen {
     }
 
     private static Text toggleModule(Text toggle){
+
         if(toggle.equals(Text.translatable("newbase.hudscreen.enabled"))){
             toggle = Text.translatable("newbase.hudscreen.disabled");
         }else {
