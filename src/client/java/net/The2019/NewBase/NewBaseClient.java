@@ -2,6 +2,7 @@ package net.The2019.NewBase;
 
 import net.The2019.NewBase.config.ModuleConfig;
 import net.The2019.NewBase.module.ChunkRender;
+import net.The2019.NewBase.module.render.BeeHiveHelper;
 import net.The2019.NewBase.render.HudRender;
 import net.The2019.NewBase.utils.InitKeyBindings;
 import net.The2019.NewBase.utils.PermissionLevel;
@@ -16,7 +17,7 @@ public class NewBaseClient implements ClientModInitializer {
 		PermissionLevel.initAllowedPlayers();
 		HudRender.registerHudRendering();
 
-		//BeeHiveHelper.register();
+		BeeHiveHelper.register();
 		ChunkRender.renderChunkOutline();
 
 		InitKeyBindings.initKeys();

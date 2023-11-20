@@ -19,6 +19,13 @@
   "newbase.hudscreen.disabled": "§4Disabled",
   "newbase.hudscreen.tooltip": "Press to Toggle",
 
+  "newbase.renderscreen.name": "Render Config Screen",
+  "newbase.renderscreen.back": "§4Back",
+  "newbase.renderscreen.beehiverender": "Toggle Beehive Render",
+  "newbase.renderscreen.enabled": "§aEnabled",
+  "newbase.renderscreen.disabled": "§4Disabled",
+  "newbase.renderscreen.tooltip": "Press to Toggle",
+
 
   "newbase.chatcoordinatesscreen.name": "Chat Coordinates Screen",
   "newbase.chatcoordinatesscreen.yes": "§aYes",

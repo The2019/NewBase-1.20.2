@@ -1,6 +1,7 @@
 package net.The2019.NewBase.screens;
 
 import net.The2019.NewBase.screens.configScreen.HudScreen;
+import net.The2019.NewBase.screens.configScreen.RenderScreen;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.tooltip.Tooltip;
@@ -33,7 +34,7 @@ public class ConfigScreen extends Screen {
 
         //Render
         this.addDrawable(new TextWidget(x, y+30, 100, 20, Text.translatable("newbase.configscreen.render"), mc.textRenderer).alignLeft());
-        this.addDrawableChild(new ButtonWidget.Builder(Text.translatable("newbase.configscreen.renderbutton"), button -> {mc.player.sendMessage(Text.literal("test"));}).tooltip(Tooltip.of(Text.translatable("newbase.configscreen.rendertooltip"))).dimensions(this.width - 220, y+30, 200, 20).build());
+        this.addDrawableChild(new ButtonWidget.Builder(Text.translatable("newbase.configscreen.renderbutton"), button -> {mc.setScreen(new RenderScreen(mc.currentScreen, mc.options));}).tooltip(Tooltip.of(Text.translatable("newbase.configscreen.rendertooltip"))).dimensions(this.width - 220, y+30, 200, 20).build());
 
 
     }
