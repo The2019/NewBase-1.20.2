@@ -9,6 +9,8 @@ import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.client.option.GameOptions;
 import net.minecraft.text.Text;
 
+import static net.The2019.NewBase.config.ModuleConfig.loadModuleState;
+import static net.The2019.NewBase.config.ModuleConfig.saveModuleState;
 import static net.The2019.NewBase.config.ModuleStates.*;
 
 
