@@ -77,6 +77,7 @@ public final class ModuleConfig {
         json.addProperty(biomeDisplay, true);
         json.addProperty(fpsDisplay, true);
         json.addProperty(beehiveRender, false);
+        json.addProperty(fullBrightRender, true);
 
         try (FileWriter writer = new FileWriter(configFile)) {
             gson.toJson(json, writer);

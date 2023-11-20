@@ -6,4 +6,5 @@ public class ModuleStates {
     public static String fpsDisplay = "fpsdisplay";
 
     public static String beehiveRender = "beehiverender";
+    public static String fullBrightRender = "fullbrightrender";
 }

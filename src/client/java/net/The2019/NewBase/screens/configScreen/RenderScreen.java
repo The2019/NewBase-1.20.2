@@ -11,8 +11,7 @@ import net.minecraft.text.Text;
 
 import static net.The2019.NewBase.config.ModuleConfig.readModule;
 import static net.The2019.NewBase.config.ModuleConfig.saveModuleState;
-import static net.The2019.NewBase.config.ModuleStates.beehiveRender;
-import static net.The2019.NewBase.config.ModuleStates.coordinateDisplay;
+import static net.The2019.NewBase.config.ModuleStates.*;
 
 public class RenderScreen extends Screen {
     private final Screen parent;
@@ -32,12 +31,19 @@ public class RenderScreen extends Screen {
 
         this.addDrawableChild(new ButtonWidget.Builder(Text.translatable("newbase.renderscreen.back"), button -> {mc.setScreen(new ConfigScreen(mc.currentScreen, mc.options));}).dimensions(17, 20, 100,20).build());
 
-        //Coordinates
+        //Beehive Helper
         this.addDrawable(new TextWidget(x, y, 500, 20, Text.translatable("newbase.renderscreen.beehiverender"), mc.textRenderer).alignLeft());
         this.addDrawableChild(new ButtonWidget.Builder(toggleModule(beehiveRender), button -> {
             saveModuleState(beehiveRender, !readModule(beehiveRender));
             mc.setScreen(new RenderScreen(mc.currentScreen, mc.options));
         }).tooltip(Tooltip.of(Text.translatable("newbase.hudscreen.tooltip"))).dimensions(this.width - 220, y, 200, 20).build());
+
+        //Coordinates
+        this.addDrawable(new TextWidget(x, y+30, 500, 20, Text.translatable("newbase.renderscreen.fullbrightrender"), mc.textRenderer).alignLeft());
+        this.addDrawableChild(new ButtonWidget.Builder(toggleModule(fullBrightRender), button -> {
+            saveModuleState(fullBrightRender, !readModule(fullBrightRender));
+            mc.setScreen(new RenderScreen(mc.currentScreen, mc.options));
+        }).tooltip(Tooltip.of(Text.translatable("newbase.hudscreen.tooltip"))).dimensions(this.width - 220, y+30, 200, 20).build());
     }
 
 

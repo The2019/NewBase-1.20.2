@@ -8,8 +8,8 @@
 		"The2019"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/The2019/NewBase-1.20.2",
+		"sources": "https://github.com/The2019/NewBase-1.20.2"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/newbase/icon.png",
@@ -33,5 +33,21 @@
 	},
 	"suggests": {
 		"another-mod": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.discord": "https://discord.gg/jEGF5fb"
+			},
+			"badges": [ "library", "deprecated" ],
+			"parent": {
+				"id": "newbase",
+				"name": "NewBase",
+				"description": "This mod is made for SMP Players. The Mod can be configured the way you need it.",
+				"icon": "assets/newbase/icon.png",
+				"badges": [ "library" ]
+			},
+			"update_checker": true
+		}
 	}
 }

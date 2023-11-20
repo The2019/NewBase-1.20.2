@@ -22,6 +22,7 @@
   "newbase.renderscreen.name": "Render Config Screen",
   "newbase.renderscreen.back": "§4Back",
   "newbase.renderscreen.beehiverender": "Toggle Beehive Render",
+  "newbase.renderscreen.fullbrightrender": "Toggle Full Bright",
   "newbase.renderscreen.enabled": "§aEnabled",
   "newbase.renderscreen.disabled": "§4Disabled",
   "newbase.renderscreen.tooltip": "Press to Toggle",
