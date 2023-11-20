@@ -1,4 +1,4 @@
-package net.The2019.NewBase.features;
+package net.The2019.NewBase.module;
 
 import net.The2019.NewBase.utils.PermissionLevel;
 import net.minecraft.client.MinecraftClient;

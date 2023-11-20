@@ -1,4 +1,4 @@
-package net.The2019.NewBase.features;
+package net.The2019.NewBase.module;
 
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.MinecraftClient;

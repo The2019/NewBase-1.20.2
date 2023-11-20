@@ -1,45 +1,81 @@
 package net.The2019.NewBase.config;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import net.minecraft.client.MinecraftClient;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-public class ModuleConfig {
-    private static final File configFile = new File(MinecraftClient.getInstance().runDirectory, "config/newbase/modules.json");
-    private static final Gson gson = new Gson();
-    private static final MinecraftClient mc = MinecraftClient.getInstance();
+import static net.The2019.NewBase.NewBaseClient.MOD_ID;
+import static net.The2019.NewBase.config.ModuleStates.*;
 
-    public static boolean loadModuleState(String moduleName) {
-        if (configFile.exists()) {
-            try (FileReader reader = new FileReader(configFile)) {
-                JsonObject json = gson.fromJson(reader, JsonObject.class);
-                if (json != null && json.has(moduleName)) {
-                    return json.get(moduleName).getAsBoolean();
+public final class ModuleConfig {
+
+    private static final File configDir = Paths.get("", "config", MOD_ID).toFile();
+    private static final File configFile = new File(configDir, "config.json");
+
+    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+    public static void init() {
+        if (!configDir.exists()) configDir.mkdirs();
+        if (!configFile.exists()) {
+            try {
+                configFile.createNewFile();
+                if (Files.size(configFile.toPath()) == 0) {
+                    // The file is empty, write default values
+                    writeDefaultValues();
                 }
+
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         }
-        return true; // Default to true if not found or error occurs
     }
 
-    public static void saveModuleState(String moduleName, boolean state) {
+    public static boolean readModule(String module){
+        try (FileReader reader = new FileReader(configFile)) {
+            JsonObject json = gson.fromJson(reader, JsonObject.class);
+            if (json != null && json.has(module)) {
+                return json.get(module).getAsBoolean();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+
+    public static void saveModuleState(String module, boolean state) {
         JsonObject json = new JsonObject();
 
-        if (configFile.exists()) {
-            try (FileReader reader = new FileReader(configFile)) {
-                json = gson.fromJson(reader, JsonObject.class);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try (FileReader reader = new FileReader(configFile)) {
+            json = gson.fromJson(reader, JsonObject.class);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        json.addProperty(moduleName, state);
+        json.addProperty(module, state);
+
+        try (FileWriter writer = new FileWriter(configFile)) {
+            gson.toJson(json, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void writeDefaultValues() {
+        JsonObject json = new JsonObject();
+
+        // Add default values here
+        json.addProperty(coordinateDisplay, true);
+        json.addProperty(biomeDisplay, true);
+        json.addProperty(fpsDisplay, true);
 
         try (FileWriter writer = new FileWriter(configFile)) {
             gson.toJson(json, writer);

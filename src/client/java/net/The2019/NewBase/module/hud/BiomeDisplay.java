@@ -1,4 +1,4 @@
-package net.The2019.NewBase.features.hud;
+package net.The2019.NewBase.module.hud;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;

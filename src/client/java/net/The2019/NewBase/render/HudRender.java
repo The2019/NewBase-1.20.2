@@ -1,8 +1,8 @@
 package net.The2019.NewBase.render;
 
-import net.The2019.NewBase.features.hud.BiomeDisplay;
-import net.The2019.NewBase.features.hud.CoordinatesDisplay;
-import net.The2019.NewBase.features.hud.FpsDisplay;
+import net.The2019.NewBase.module.hud.BiomeDisplay;
+import net.The2019.NewBase.module.hud.CoordinatesDisplay;
+import net.The2019.NewBase.module.hud.FpsDisplay;
 import net.The2019.NewBase.utils.DisplayElements;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
@@ -11,6 +11,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static net.The2019.NewBase.config.ModuleConfig.readModule;
 import static net.The2019.NewBase.config.ModuleStates.*;
 
 public class HudRender {
@@ -25,9 +26,9 @@ public class HudRender {
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
             int yOffset = 10;
 
-            displayElements.get(0).setActive(coordinatesDisplayState);
-            displayElements.get(1).setActive(biomDisplayState);
-            displayElements.get(2).setActive(fpsDisplayState);
+            displayElements.get(0).setActive(readModule(coordinateDisplay));
+            displayElements.get(1).setActive(readModule(biomeDisplay));
+            displayElements.get(2).setActive(readModule(fpsDisplay));
 
             for (DisplayElements element : displayElements) {
                 if (element.isActive()) {

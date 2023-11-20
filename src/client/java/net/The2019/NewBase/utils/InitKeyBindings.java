@@ -8,8 +8,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
 import org.lwjgl.glfw.GLFW;
 
-import static net.The2019.NewBase.config.ModuleStates.fpsDisplayState;
-
 public class InitKeyBindings {
 
     private static final MinecraftClient mc = MinecraftClient.getInstance();
@@ -31,7 +29,6 @@ public class InitKeyBindings {
                 mc.setScreen(new ChatCoordinatesScreen(mc.currentScreen, mc.options));
             }
             if(toggleFps.wasPressed()){
-                fpsDisplayState = !fpsDisplayState;
             }
         });
     }

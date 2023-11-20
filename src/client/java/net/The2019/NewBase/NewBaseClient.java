@@ -1,6 +1,7 @@
 package net.The2019.NewBase;
 
-import net.The2019.NewBase.features.ChunkRender;
+import net.The2019.NewBase.config.ModuleConfig;
+import net.The2019.NewBase.module.ChunkRender;
 import net.The2019.NewBase.render.HudRender;
 import net.The2019.NewBase.utils.InitKeyBindings;
 import net.The2019.NewBase.utils.PermissionLevel;
@@ -19,5 +20,7 @@ public class NewBaseClient implements ClientModInitializer {
 		ChunkRender.renderChunkOutline();
 
 		InitKeyBindings.initKeys();
+
+		ModuleConfig.init();
 	}
 }
