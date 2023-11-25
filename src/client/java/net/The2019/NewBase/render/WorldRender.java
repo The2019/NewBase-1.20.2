@@ -4,11 +4,12 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import org.lwjgl.opengl.GL11;
 
+
 public class WorldRender {
+    /*
     public static void renderOutline(WorldRenderContext context, Box box, float[] colorComponents, float lineWidth, boolean throughWalls) {
 
         MatrixStack matrices = context.matrixStack();
@@ -31,6 +32,36 @@ public class WorldRender {
         tessellator.draw();
 
         matrices.pop();
+        RenderSystem.lineWidth(1f);
+        RenderSystem.enableCull();
+        RenderSystem.disableDepthTest();
+        RenderSystem.depthFunc(GL11.GL_LEQUAL);
+    }
+     */
+
+    public static void renderBlock(WorldRenderContext context, Box box){
+
+        Vec3d camera = context.camera().getPos();
+        MatrixStack matrixStack = context.matrixStack();
+
+        Tessellator tessellator = Tessellator.getInstance();
+        BufferBuilder buffer = tessellator.getBuffer();
+
+        RenderSystem.setShader(GameRenderer::getRenderTypeLinesProgram);
+        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
+        RenderSystem.lineWidth(1f);
+        RenderSystem.disableCull();
+        RenderSystem.enableDepthTest();
+        RenderSystem.depthFunc(GL11.GL_ALWAYS);
+
+        matrixStack.push();
+        matrixStack.translate(-camera.getX(), -camera.getY(), -camera.getZ());
+
+        buffer.begin(VertexFormat.DrawMode.LINES, VertexFormats.LINES);
+        WorldRenderer.drawBox(matrixStack, buffer, box, 1f, 1f, 1f, 1f);
+        tessellator.draw();
+
+        matrixStack.pop();
         RenderSystem.lineWidth(1f);
         RenderSystem.enableCull();
         RenderSystem.disableDepthTest();
