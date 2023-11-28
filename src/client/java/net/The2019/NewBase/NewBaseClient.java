@@ -3,6 +3,7 @@ package net.The2019.NewBase;
 import net.The2019.NewBase.config.ModuleConfig;
 import net.The2019.NewBase.features.generic.ChunkRender;
 import net.The2019.NewBase.features.generic.Placer;
+import net.The2019.NewBase.features.generic.Test;
 import net.The2019.NewBase.features.generic.TridentHelper;
 import net.The2019.NewBase.features.render.BeeHiveHelper;
 import net.The2019.NewBase.render.HudRender;

@@ -41,5 +41,6 @@
 
   "newbase.keybinds.configscreen": "Config Screen",
   "newbase.keybinds.sendcoordinates": "Send Coordinates",
-  "newbase.keybinds.togglefps": "Toggle Fps"
+  "newbase.keybinds.toggleplacer": "Toggle Placer",
+  "newbase.keybinds.toggletest": "Toggle Test"
 }

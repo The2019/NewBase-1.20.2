@@ -1,11 +1,13 @@
 package net.The2019.NewBase.utils;
 
+import net.The2019.NewBase.features.generic.Test;
 import net.The2019.NewBase.screens.ChatCoordinatesScreen;
 import net.The2019.NewBase.screens.ConfigScreen;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.text.Text;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -25,7 +27,9 @@ public class InitKeyBindings {
 
         KeyBinding chatCoordinates = KeyBindingHelper.registerKeyBinding(new KeyBinding("newbase.keybinds.sendcoordinates", GLFW.GLFW_KEY_P, "newbase.name"));
 
-        KeyBinding toggleFps = KeyBindingHelper.registerKeyBinding(new KeyBinding("newbase.keybinds.togglefps", GLFW.GLFW_KEY_K, "newbase.name"));
+        KeyBinding togglePlacer = KeyBindingHelper.registerKeyBinding(new KeyBinding("newbase.keybinds.toggleplacer", GLFW.GLFW_KEY_K, "newbase.name"));
+
+        KeyBinding toggleTest = KeyBindingHelper.registerKeyBinding(new KeyBinding("newbase.keybinds.toggletest", GLFW.GLFW_KEY_J, "newbase.name"));
 
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -35,9 +39,13 @@ public class InitKeyBindings {
             if(chatCoordinates.wasPressed()){
                 mc.setScreen(new ChatCoordinatesScreen(mc.currentScreen, mc.options));
             }
-            if(toggleFps.wasPressed()){
+            if(togglePlacer.wasPressed()){
                 MinecraftClient.getInstance().options.forwardKey.setPressed(!readModule(placer));
                 saveModuleState(placer, !readModule(placer));
+            }
+            if(toggleTest.wasPressed()){
+                MinecraftClient.getInstance().player.sendMessage(Text.literal("key"));
+                Test.test();
             }
         });
     }

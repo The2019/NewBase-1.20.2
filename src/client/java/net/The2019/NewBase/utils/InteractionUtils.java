@@ -12,4 +12,5 @@ public class InteractionUtils {
     public static void placeBlock(Hand hand, BlockPos blockPos, Direction direction, boolean indsideBlock){
         mc.interactionManager.interactBlock(mc.player, hand, new BlockHitResult(mc.player.getPos(), direction, blockPos, indsideBlock));
     }
+
 }
