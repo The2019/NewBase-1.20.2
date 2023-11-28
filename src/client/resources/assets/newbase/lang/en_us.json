@@ -7,6 +7,8 @@
   "newbase.configscreen.hudtooltip": "Opens the config menu for the Hud.",
   "newbase.configscreen.render": "Render Configs",
   "newbase.configscreen.renderbutton": "Render Configs",
+  "newbase.configscreen.generic": "Generic Configs",
+  "newbase.configscreen.genericbutton": "Generic Configs",
   "newbase.configscreen.rendertooltip": "Opens the config menu for the Renderings.",
   "newbase.configscreen.nametooltip": "Close with ESC.",
 
@@ -26,6 +28,10 @@
   "newbase.renderscreen.enabled": "§aEnabled",
   "newbase.renderscreen.disabled": "§4Disabled",
   "newbase.renderscreen.tooltip": "Press to Toggle",
+
+  "newbase.genericscreen.name": "Generic Config Screen",
+  "newbase.genericscreen.placer": "Toggle Placer",
+  "newbase.genericscreen.tridenthelper": "Toggle Trident Helper",
 
 
   "newbase.chatcoordinatesscreen.name": "Chat Coordinates Screen",

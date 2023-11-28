@@ -1,7 +1,9 @@
 package net.The2019.NewBase;
 
 import net.The2019.NewBase.config.ModuleConfig;
-import net.The2019.NewBase.features.ChunkRender;
+import net.The2019.NewBase.features.generic.ChunkRender;
+import net.The2019.NewBase.features.generic.Placer;
+import net.The2019.NewBase.features.generic.TridentHelper;
 import net.The2019.NewBase.features.render.BeeHiveHelper;
 import net.The2019.NewBase.render.HudRender;
 import net.The2019.NewBase.utils.InitKeyBindings;
@@ -14,14 +16,20 @@ public class NewBaseClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		//Utils
 		PermissionLevel.initAllowedPlayers();
-		HudRender.registerHudRendering();
-
-		BeeHiveHelper.register();
-		ChunkRender.renderChunkOutline();
-
+		ModuleConfig.init();
 		InitKeyBindings.initKeys();
 
-		ModuleConfig.init();
+		//Hud
+		HudRender.registerHudRendering();
+
+		//Render
+		BeeHiveHelper.register();
+
+		//generic
+		ChunkRender.renderChunkOutline();
+		Placer.place();
+		TridentHelper.tridentHelper();
 	}
 }

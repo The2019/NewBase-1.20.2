@@ -78,6 +78,8 @@ public final class ModuleConfig {
         json.addProperty(fpsDisplay, true);
         json.addProperty(beehiveRender, false);
         json.addProperty(fullBrightRender, true);
+        json.addProperty(placer, false);
+        json.addProperty(tridentHelper, true);
 
         try (FileWriter writer = new FileWriter(configFile)) {
             gson.toJson(json, writer);

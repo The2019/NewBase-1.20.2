@@ -22,8 +22,8 @@ public class BeeHiveHelper {
 
     public static void register() {
         WorldRenderEvents.END.register(context -> {
-            if(readModule(beehiveRender)){
-                if (mc.player != null ){
+            if(readModule(beehiveRender)) {
+                if (mc.player != null) {
                     for (BlockEntity blockEntity : getBlockEntities().collect(Collectors.toCollection(ArrayList::new))) {
                         if (blockEntity instanceof BeehiveBlockEntity) {
                             BlockPos blockEntityPos = blockEntity.getPos();
@@ -32,6 +32,7 @@ public class BeeHiveHelper {
                     }
                 }
             }
+
         });
     }
 }

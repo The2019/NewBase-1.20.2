@@ -6,7 +6,14 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.KeyBinding;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import org.lwjgl.glfw.GLFW;
+
+import static net.The2019.NewBase.config.ModuleConfig.readModule;
+import static net.The2019.NewBase.config.ModuleConfig.saveModuleState;
+import static net.The2019.NewBase.config.ModuleStates.placer;
 
 public class InitKeyBindings {
 
@@ -29,6 +36,8 @@ public class InitKeyBindings {
                 mc.setScreen(new ChatCoordinatesScreen(mc.currentScreen, mc.options));
             }
             if(toggleFps.wasPressed()){
+                MinecraftClient.getInstance().options.forwardKey.setPressed(!readModule(placer));
+                saveModuleState(placer, !readModule(placer));
             }
         });
     }
