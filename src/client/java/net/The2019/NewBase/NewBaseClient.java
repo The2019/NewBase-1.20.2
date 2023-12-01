@@ -1,11 +1,10 @@
 package net.The2019.NewBase;
 
 import net.The2019.NewBase.config.ModuleConfig;
-import net.The2019.NewBase.features.generic.ChunkRender;
 import net.The2019.NewBase.features.generic.Placer;
-import net.The2019.NewBase.features.generic.Test;
 import net.The2019.NewBase.features.generic.TridentHelper;
 import net.The2019.NewBase.features.render.BeeHiveHelper;
+import net.The2019.NewBase.features.waypoints.Waypoints;
 import net.The2019.NewBase.render.HudRender;
 import net.The2019.NewBase.utils.InitKeyBindings;
 import net.The2019.NewBase.utils.PermissionLevel;
@@ -29,8 +28,11 @@ public class NewBaseClient implements ClientModInitializer {
 		BeeHiveHelper.register();
 
 		//generic
-		ChunkRender.renderChunkOutline();
 		Placer.place();
 		TridentHelper.tridentHelper();
+
+		//waypoints
+		Waypoints.init();
+		Waypoints.renderWaypoints();
 	}
 }
