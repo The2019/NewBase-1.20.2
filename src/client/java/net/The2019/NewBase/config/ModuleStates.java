@@ -13,4 +13,5 @@ public class ModuleStates {
     //Generic
     public static String placer = "placer";
     public static String tridentHelper = "trident";
+    public static String deathcoords = "deathcoords";
 }

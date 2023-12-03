@@ -4,9 +4,10 @@
   "compatibilityLevel": "JAVA_17",
   "client": [
     "BrightnessMixin",
-    "PlayerListHudMixin"
+    "PlayerListHudMixin",
+    "DeathScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  }
 }

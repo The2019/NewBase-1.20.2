@@ -12,9 +12,9 @@ import static net.The2019.NewBase.config.ModuleStates.fullBrightRender;
 @Mixin(LightmapTextureManager.class)
 abstract class BrightnessMixin{
     @Inject(method = "getBrightness", at = @At("HEAD"), cancellable = true)
-    private static void onGetBrightness(CallbackInfoReturnable<Float> info) {
+    private static void onGetBrightness(CallbackInfoReturnable<Float> cir) {
         if(readModule(fullBrightRender)) {
-            info.setReturnValue(1f);
+            cir.setReturnValue(1f);
         }
     }
 }

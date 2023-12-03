@@ -2,7 +2,6 @@ package net.The2019.NewBase.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import java.io.File;
@@ -80,6 +79,7 @@ public final class ModuleConfig {
         json.addProperty(fullBrightRender, true);
         json.addProperty(placer, false);
         json.addProperty(tridentHelper, true);
+        json.addProperty(deathcoords, true);
 
         try (FileWriter writer = new FileWriter(configFile)) {
             gson.toJson(json, writer);
