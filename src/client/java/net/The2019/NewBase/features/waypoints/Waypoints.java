@@ -21,7 +21,7 @@ public class Waypoints {
     public static void renderWaypoints() {
         WorldRenderEvents.END.register(context -> {
             for (BlockPos pos : waypoints.keySet()) {
-                renderWaypoint(context.matrixStack(), pos, waypoints.get(pos));
+                renderWaypoint(context, pos, waypoints.get(pos));
             }
         });
     }
