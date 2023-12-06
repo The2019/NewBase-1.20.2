@@ -27,32 +27,23 @@ public class WaypointRender {
         matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(camera.getYaw() + 180.0F));
         matrixStack.translate(transformedPosition.x, transformedPosition.y, transformedPosition.z);
 
-        Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder buffer = tessellator.getBuffer();
         Matrix4f positionMatrix = matrixStack.peek().getPositionMatrix();
 
         RenderSystem.depthFunc(GL11.GL_ALWAYS);
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
+        RenderSystem.disableCull();
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
 
-        matrixStack.push();
-
-        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
-        buffer.vertex(positionMatrix, 0, 1, 0).color(1.0f, 1.0f, 1.0f, 1.0f).next();
-        // Add more vertices for your shape as needed
-
-        tessellator.draw();
-
-        matrixStack.pop();
 
         // Render text
         TextRenderer textRenderer = mc.textRenderer;
         float textX = (float) (pos.getX() - camera.getBlockPos().getX());
         float textY = (float) (pos.getY() - camera.getBlockPos().getY());
-        textRenderer.draw(Text.literal(name), textX, textY, 1, false, positionMatrix, mc.getBufferBuilders().getOutlineVertexConsumers(), TextRenderer.TextLayerType.NORMAL, 1, 1);
+        textRenderer.draw(Text.literal(name), textX, textY, 1, false, positionMatrix, mc.getBufferBuilders().getOutlineVertexConsumers(), TextRenderer.TextLayerType.SEE_THROUGH, 1, 1);
 
         RenderSystem.disableBlend();
         RenderSystem.depthFunc(GL11.GL_LEQUAL);
+        RenderSystem.enableCull();
     }
 }

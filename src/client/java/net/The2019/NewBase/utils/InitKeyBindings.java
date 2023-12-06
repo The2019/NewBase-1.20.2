@@ -1,6 +1,7 @@
 package net.The2019.NewBase.utils;
 
 import net.The2019.NewBase.features.generic.Test;
+import net.The2019.NewBase.features.generic.YawSet;
 import net.The2019.NewBase.screens.ChatCoordinatesScreen;
 import net.The2019.NewBase.screens.ConfigScreen;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -29,7 +30,7 @@ public class InitKeyBindings {
 
         KeyBinding togglePlacer = KeyBindingHelper.registerKeyBinding(new KeyBinding("newbase.keybinds.toggleplacer", GLFW.GLFW_KEY_K, "newbase.name"));
 
-        KeyBinding toggleTest = KeyBindingHelper.registerKeyBinding(new KeyBinding("newbase.keybinds.toggletest", GLFW.GLFW_KEY_J, "newbase.name"));
+        KeyBinding toggleYawSet = KeyBindingHelper.registerKeyBinding(new KeyBinding("newbase.keybinds.toggletest", GLFW.GLFW_KEY_J, "newbase.name"));
 
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
@@ -43,9 +44,8 @@ public class InitKeyBindings {
                 MinecraftClient.getInstance().options.forwardKey.setPressed(!readModule(placer));
                 saveModuleState(placer, !readModule(placer));
             }
-            if(toggleTest.wasPressed()){
-                MinecraftClient.getInstance().player.sendMessage(Text.literal("key"));
-                Test.test();
+            if(toggleYawSet.wasPressed()){
+                YawSet.setYaw();
             }
         });
     }

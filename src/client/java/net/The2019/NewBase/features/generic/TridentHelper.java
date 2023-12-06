@@ -13,12 +13,8 @@ public class TridentHelper {
     public static void tridentHelper() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (readModule(tridentHelper)){
-                if (mc.player != null) {
-                    if (mc.player.getActiveItem().getItem() == Items.TRIDENT){
-                        if( mc.player.isTouchingWater()) {
-                            mc.player.setSprinting(true);
-                        }
-                    }
+                if (mc.player != null && mc.player.getActiveItem().getItem() == Items.TRIDENT && mc.player.isTouchingWater()) {
+                    mc.player.setSprinting(true);
                 }
             }
         });

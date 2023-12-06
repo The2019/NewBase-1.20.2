@@ -32,7 +32,7 @@
   "newbase.genericscreen.name": "Generic Config Screen",
   "newbase.genericscreen.placer": "Toggle Placer",
   "newbase.genericscreen.tridenthelper": "Toggle Trident Helper",
-
+  "newbase.genericscreen.deathcorrds": "Toggle Death Coordinates",
 
   "newbase.chatcoordinatesscreen.name": "Chat Coordinates Screen",
   "newbase.chatcoordinatesscreen.yes": "§aYes",
@@ -42,5 +42,5 @@
   "newbase.keybinds.configscreen": "Config Screen",
   "newbase.keybinds.sendcoordinates": "Send Coordinates",
   "newbase.keybinds.toggleplacer": "Toggle Placer",
-  "newbase.keybinds.toggletest": "Toggle Test"
+  "newbase.keybinds.toggletest": "Toggle Set Yaw"
 }

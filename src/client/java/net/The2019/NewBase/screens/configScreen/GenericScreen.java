@@ -52,6 +52,13 @@ public class GenericScreen extends Screen {
             mc.setScreen(new GenericScreen(mc.currentScreen, mc.options));
         }).tooltip(Tooltip.of(Text.translatable("newbase.hudscreen.tooltip"))).dimensions(this.width - 220, y+30, 200, 20).build());
 
+        //Death Coords
+        this.addDrawable(new TextWidget(x, y+60, 500, 20, Text.translatable("newbase.genericscreen.deathcorrds"), mc.textRenderer).alignLeft());
+        this.addDrawableChild(new ButtonWidget.Builder(toggleModule(deathcoords), button -> {
+            saveModuleState(deathcoords, !readModule(deathcoords));
+            mc.setScreen(new GenericScreen(mc.currentScreen, mc.options));
+        }).tooltip(Tooltip.of(Text.translatable("newbase.hudscreen.tooltip"))).dimensions(this.width - 220, y+60, 200, 20).build());
+
     }
 
 
